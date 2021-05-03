@@ -2,11 +2,19 @@
 
 namespace App\Controllers;
 
+use Database\DBConnection;
+
 /**
 *
 */
 class Controller
 {
+  protected $db;
+
+  public function __construct(DBConnection $db)
+  {
+    $this->db = $db;
+  }
 
   public function view(string $path, Array $params = null)
   {

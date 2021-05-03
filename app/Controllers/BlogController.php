@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+
 /**
  *
  */
@@ -15,6 +16,15 @@ class BlogController extends Controller
 
   public function show(int $id)
   {
+
+    $req = $this->db->getPDO()->query('SELECT * FROM posts');
+
+    $posts = $req->fetchAll();
+
+    foreach ($posts as $key => $post) {
+      echo $post->title;
+    }
+
     return $this->view('blog.show', compact('id'));
   }
 }

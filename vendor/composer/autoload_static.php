@@ -11,6 +11,10 @@ class ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1
         array (
             'Router\\' => 7,
         ),
+        'D' => 
+        array (
+            'Database\\' => 9,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -22,10 +26,18 @@ class ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1
         array (
             0 => __DIR__ . '/../..' . '/routes',
         ),
+        'Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/database',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -33,6 +45,7 @@ class ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1::$classMap;
 
         }, null, ClassLoader::class);
     }

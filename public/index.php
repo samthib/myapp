@@ -13,7 +13,7 @@ $router = new Router($_GET['url']);
 
 
 $router->get('/', 'App\Controllers\BlogController@index');
-$router->get('/post/:id', 'App\Controllers\BlogController@show');
+$router->get('/posts/:id', 'App\Controllers\BlogController@show');
 
 
 $router->run();
