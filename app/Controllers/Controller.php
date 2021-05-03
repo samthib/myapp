@@ -1,8 +1,8 @@
 <?php
-
 namespace App\Controllers;
 
 use Database\DBConnection;
+
 
 /**
 *
@@ -16,7 +16,7 @@ class Controller
     $this->db = $db;
   }
 
-  public function view(string $path, Array $params = null)
+  public function view(string $path, array $params = null)
   {
     ob_start();
 
@@ -30,5 +30,7 @@ class Controller
     require VIEWS.'layout.php';
   }
 }
+
+
 
 ?>

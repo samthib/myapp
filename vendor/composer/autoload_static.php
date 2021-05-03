@@ -37,7 +37,11 @@ class ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1
     );
 
     public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'App\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Controllers/BlogController.php',
+        'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Controllers/Controller.php',
+        'Database\\DBConnection' => __DIR__ . '/../..' . '/database/DBConnection.php',
+        'Router\\Route' => __DIR__ . '/../..' . '/routes/Route.php',
+        'Router\\Router' => __DIR__ . '/../..' . '/routes/Router.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

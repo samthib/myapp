@@ -4,27 +4,30 @@ namespace App\Controllers;
 
 
 /**
- *
- */
+*
+*/
 class BlogController extends Controller
 {
+  public function welcome()
+  {
+    return $this->view('blog.welcome');
+  }
 
   public function index()
   {
-    return $this->view('blog.index');
+    $stmt = $this->db->getPDO()->query('SELECT * FROM posts ORDER BY created_at DESC');
+
+    $posts = $stmt->fetchAll();
+
+    return $this->view('blog.index', compact('posts'));
   }
 
   public function show(int $id)
   {
+    $stmt = $this->db->getPDO()->prepare('SELECT * FROM posts WHERE id = ?');
+    $stmt->execute([$id]);
+    $post = $stmt->fetch();
 
-    $req = $this->db->getPDO()->query('SELECT * FROM posts');
-
-    $posts = $req->fetchAll();
-
-    foreach ($posts as $key => $post) {
-      echo $post->title;
-    }
-
-    return $this->view('blog.show', compact('id'));
+    return $this->view('blog.show', compact('post'));
   }
 }
