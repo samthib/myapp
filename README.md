@@ -1,3 +1,3 @@
 # myapp
 
-Custom MVC based on Nord Coder tutorial
+Custom MVC based on Nord Coder tutorial edité
