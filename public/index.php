@@ -3,6 +3,7 @@
 require "../vendor/autoload.php";
 
 use Router\Router;
+use App\Exceptions\NotFoundException;
 
 define('ROOT', "/POO_NordCoder/myapp");
 define('VIEWS', dirname(__DIR__).DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR);
@@ -21,5 +22,8 @@ $router->get('/posts', 'App\Controllers\BlogController@index');
 $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 
-
-$router->run();
+try {
+  $router->run();
+} catch (NotFoundException $e) {
+  echo $e->error404();
+}
