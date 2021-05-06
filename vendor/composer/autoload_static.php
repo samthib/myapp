@@ -41,6 +41,7 @@ class ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1
         'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Controllers/Controller.php',
         'App\\Models\\Model' => __DIR__ . '/../..' . '/app/Models/Model.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
+        'App\\Models\\Tag' => __DIR__ . '/../..' . '/app/Models/Tag.php',
         'Database\\DBConnection' => __DIR__ . '/../..' . '/database/DBConnection.php',
         'Router\\Route' => __DIR__ . '/../..' . '/routes/Route.php',
         'Router\\Router' => __DIR__ . '/../..' . '/routes/Router.php',
