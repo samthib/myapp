@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\Admin\\PostController' => $baseDir . '/app/Controllers/Admin/PostController.php',
     'App\\Controllers\\BlogController' => $baseDir . '/app/Controllers/BlogController.php',
     'App\\Controllers\\Controller' => $baseDir . '/app/Controllers/Controller.php',
+    'App\\Exceptions\\NotFoundException' => $baseDir . '/app/Exceptions/NotFoundException.php',
     'App\\Models\\Model' => $baseDir . '/app/Models/Model.php',
     'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
     'App\\Models\\Tag' => $baseDir . '/app/Models/Tag.php',

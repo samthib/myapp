@@ -24,7 +24,7 @@ class Post extends Model
   {
     return <<<HTML
     <a href="$root/posts/$this->id" class="btn btn-primary">Lire l'article</a>
-    HTML;
+HTML;
   }
 
   public function getTags()
@@ -33,5 +33,22 @@ class Post extends Model
       INNER JOIN post_tag pt ON pt.tag_id = t.id
       INNER JOIN posts p ON pt.post_id = p.id
       WHERE p.id = ?", [$this->id]);
-  }
+    }
+
+    public function update(int $id, array $data, ?array $relations = null): bool
+    {
+      parent::update($id, $data);
+
+      $stmt = $this->db->getPDO()->prepare("DELETE FROM post_tag WHERE post_id = ?");
+      $result = $stmt->execute([$id]);
+
+      foreach ($relations as $key => $tagId) {
+        $stmt = $this->db->getPDO()->prepare("INSERT post_tag (post_id, tag_id) VALUES (?, ?)");
+        $stmt->execute([$id, $tagId]);
+      }
+
+      if ($result) {
+        return true;
+      }
+    }
 }

@@ -37,8 +37,10 @@ class ComposerStaticInitbc3739ea39b89b49bdac2c345ef531a1
     );
 
     public static $classMap = array (
+        'App\\Controllers\\Admin\\PostController' => __DIR__ . '/../..' . '/app/Controllers/Admin/PostController.php',
         'App\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Controllers/BlogController.php',
         'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Controllers/Controller.php',
+        'App\\Exceptions\\NotFoundException' => __DIR__ . '/../..' . '/app/Exceptions/NotFoundException.php',
         'App\\Models\\Model' => __DIR__ . '/../..' . '/app/Models/Model.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\Tag' => __DIR__ . '/../..' . '/app/Models/Tag.php',

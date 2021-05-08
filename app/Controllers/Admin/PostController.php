@@ -2,9 +2,8 @@
 
 namespace App\Controllers\Admin;
 use App\Controllers\Controller;
+use App\Models\Tag;
 use App\Models\Post;
-
-
 
 
 /**
@@ -23,14 +22,18 @@ class PostController extends Controller
   public function edit(int $id)
   {
     $post = (new Post($this->getDB()))->findById($id);
+    $tags = (new Tag($this->getDB()))->all();
 
-    return $this->view('admin.posts.edit', compact('post'));
+    return $this->view('admin.posts.edit', compact('post', 'tags'));
   }
 
   public function update(int $id)
   {
     $post = new Post($this->getDB());
-    $result = $post->update($id, $_POST);
+
+    $tags = array_pop($_POST);
+
+    $result = $post->update($id, $_POST, $tags);
 
     if ($result) {
       return header('Location: '.ROOT.'/admin/posts');
