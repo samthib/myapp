@@ -16,7 +16,6 @@ define('DB_PASSWORD', '');
 
 $router = new Router($_GET['url']);
 
-
 $router->get('/', 'App\Controllers\BlogController@index');
 $router->get('/posts', 'App\Controllers\BlogController@index');
 $router->get('/posts/:id', 'App\Controllers\BlogController@show');
