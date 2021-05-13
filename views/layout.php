@@ -15,7 +15,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
     <a class="navbar-brand" href="<?php echo ROOT ?>">Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,16 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Les derniers articles</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="<?php echo ROOT ?>/admin/posts">Administration</a>
+        </li>
+        <?php if (isset($_SESSION['auth'])): ?>          
+          <li class="nav-item ml-auto">
+            <a class="nav-link" href="<?php echo ROOT ?>/logout">Se déconnecter</a>
+          </li>
+        <?php endif; ?>
       </ul>
     </div>
   </nav>

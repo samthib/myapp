@@ -1,3 +1,12 @@
+<h1>Administration des articles</h1>
+
+<?php if (isset($_GET['success'])): ?>
+  <div class="alert alert-success">
+    Vous êtes connecté
+  </div>
+<?php endif; ?>
+
+<a href="<?php echo ROOT ?>/admin/posts/create" class="btn btn-success my-3">Créer un nouvel article</a>
 <table class="table">
   <thead>
     <tr>

@@ -35,6 +35,20 @@ HTML;
       WHERE p.id = ?", [$this->id]);
     }
 
+    public function create(array $data, ?array $relations = null)
+    {
+      parent::create($data);
+
+      $id = $this->db->getPDO()->lastInsertId();
+
+      foreach ($relations as $key => $tagId) {
+        $stmt = $this->db->getPDO()->prepare("INSERT post_tag (post_id, tag_id) VALUES (?, ?)");
+        $stmt->execute([$id, $tagId]);
+      }
+
+      return true;
+    }
+
     public function update(int $id, array $data, ?array $relations = null): bool
     {
       parent::update($id, $data);
@@ -51,4 +65,4 @@ HTML;
         return true;
       }
     }
-}
+  }
